@@ -6,6 +6,7 @@
     <meta name="viewport" content="widht=device-width, initial=1.0">
     <title>Nabi Younus | Cybersecurity</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
     <!-- NAVIGATION -->
@@ -142,15 +143,32 @@
   </div>
 </section>
 
-<!-- CONTACT SECTION -->
+<!-- CONTACT  -->
 <section id="contact">
   <h2 class="section-title">CONTACT<span class="blink">_</span></h2>
   <div class="contact-content">
     <p>Open to apprenticeship opportunities in cybersecurity starting <span class="highlight">September 2026</span>.</p>
-    <div class="contact-links">
-      <a href="mailto:nabiofficial110@gmail.com" class="contact-item">📧 nabiofficial110@gmail.com</a>
-      <a href="tel:+33780188208" class="contact-item">📞 +33 7 80 18 82 08</a>
-      <a href="https://github.com/Fa114n" class="contact-item" target="_blank">⌨️ github.com/Fa114n</a>
+    <div class="contact-wrapper">
+      <div class="contact-links">
+        <a href="mailto:nabiofficial110@gmail.com" class="contact-item">📧 nabiofficial110@gmail.com</a>
+        <a href="tel:+33780188208" class="contact-item">📞 +33 7 80 18 82 08</a>
+        <a href="https://github.com/Fa114n" class="contact-item" target="_blank">⌨️ github.com/Fa114n</a>
+      </div>
+      <form id="contact-form" class="cyber-form">
+        <div class="form-group">
+          <input type="text" id="from_name" name="from_name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+          <input type="email" id="from_email" name="from_email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+          <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" id="submit-btn">
+          Send Message ›
+        </button>
+        <p id="form-status"></p>
+      </form>
     </div>
   </div>
 </section>

@@ -117,3 +117,33 @@ heroName.addEventListener('mouseenter', () => {
   heroName.classList.add('glitching');
   setTimeout(() => heroName.classList.remove('glitching'), 600);
 });
+
+// --- 7. EMAILJS CONTACT FORM ---
+emailjs.init('5y-te1EMcoy9PuOjv');
+
+const contactForm = document.getElementById('contact-form');
+const submitBtn = document.getElementById('submit-btn');
+const formStatus = document.getElementById('form-status');
+
+contactForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  submitBtn.textContent = 'Sending...';
+  submitBtn.disabled = true;
+
+  emailjs.sendForm('service_lclkvsf', 'template_ekfbta8', this)
+    .then(() => {
+      formStatus.textContent = '✅ Message sent successfully!';
+      formStatus.className = 'success';
+      contactForm.reset();
+      submitBtn.textContent = 'Send Message ›';
+      submitBtn.disabled = false;
+    })
+    .catch((error) => {
+      formStatus.textContent = '❌ Failed to send. Please try again.';
+      formStatus.className = 'error';
+      submitBtn.textContent = 'Send Message ›';
+      submitBtn.disabled = false;
+      console.error('EmailJS error:', error);
+    });
+});
