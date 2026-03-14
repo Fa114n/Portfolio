@@ -1,0 +1,71 @@
+/* Reset basic margins/padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+nav {
+    background-color: #111;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    displays: flex;
+    justify-content: center;
+
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bpld;
+    padding: 15px 0;
+    display: block;
+}
+
+nav ul li a:hoveer {
+    color: #00ff99;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    padding: 100px 20px;
+    min-height: 100vh;
+    max-width: 900px;
+    margin: auto;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    background: #111;
+    color: white;
+    padding: 10px;
+    margin: 10px 0;
+    border-left: 4px solid #00ff99;
+}
+.projects-container {
+    dislay: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
