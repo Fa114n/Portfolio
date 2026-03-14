@@ -658,3 +658,87 @@ footer {
     gap: 2rem;
   }
 }
+
+/* --- SCANLINES OVERLAY --- */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.03) 2px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* --- SCREEN FLICKER --- */
+@keyframes flicker {
+  0%   { opacity: 1; }
+  92%  { opacity: 1; }
+  93%  { opacity: 0.8; }
+  94%  { opacity: 1; }
+  96%  { opacity: 0.9; }
+  100% { opacity: 1; }
+}
+
+body {
+  animation: flicker 8s infinite;
+}
+
+/* --- NEON GLOW PULSE on hero name --- */
+@keyframes pulse-glow {
+  0%, 100% {
+    text-shadow:
+      0 0 10px var(--cyan),
+      0 0 40px rgba(0,245,255,0.3);
+  }
+  50% {
+    text-shadow:
+      0 0 20px var(--cyan),
+      0 0 80px rgba(0,245,255,0.5),
+      0 0 120px rgba(0,245,255,0.2);
+  }
+}
+
+.hero-name {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* --- CORNER BRACKETS on cards --- */
+.project-card::after,
+.skill-category::after,
+.cert-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; right: 0;
+  width: 12px; height: 12px;
+  border-bottom: 2px solid var(--cyan);
+  border-right: 2px solid var(--cyan);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.project-card:hover::after,
+.skill-category:hover::after,
+.cert-card:hover::after {
+  opacity: 1;
+}
+
+/* --- GLITCH LINE animation on section titles --- */
+@keyframes glitch-line {
+  0%   { transform: translateX(0); }
+  20%  { transform: translateX(-3px); }
+  40%  { transform: translateX(3px); }
+  60%  { transform: translateX(-1px); }
+  80%  { transform: translateX(1px); }
+  100% { transform: translateX(0); }
+}
+
+.section-title:hover {
+  animation: glitch-line 0.4s steps(1) forwards;
+  color: #fff;
+}

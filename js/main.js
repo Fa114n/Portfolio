@@ -147,3 +147,79 @@ contactForm.addEventListener('submit', function(e) {
       console.error('EmailJS error:', error);
     });
 });
+
+// --- 8. PARTICLES BACKGROUND ---
+const canvas = document.createElement('canvas');
+canvas.id = 'particles';
+canvas.style.cssText = `
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+`;
+document.body.prepend(canvas);
+
+const ctx = canvas.getContext('2d');
+let particles = [];
+
+function resizeCanvas() {
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+// Create particles
+for (let i = 0; i < 80; i++) {
+  particles.push({
+    x:    Math.random() * canvas.width,
+    y:    Math.random() * canvas.height,
+    r:    Math.random() * 1.5 + 0.5,
+    dx:   (Math.random() - 0.5) * 0.4,
+    dy:   (Math.random() - 0.5) * 0.4,
+    alpha: Math.random() * 0.5 + 0.2
+  });
+}
+
+function drawParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach(p => {
+    // Move
+    p.x += p.dx;
+    p.y += p.dy;
+
+    // Wrap around edges
+    if (p.x < 0) p.x = canvas.width;
+    if (p.x > canvas.width) p.x = 0;
+    if (p.y < 0) p.y = canvas.height;
+    if (p.y > canvas.height) p.y = 0;
+
+    // Draw dot
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(0, 245, 255, ${p.alpha})`;
+    ctx.fill();
+  });
+
+  // Draw connecting lines between close particles
+  particles.forEach((a, i) => {
+    particles.slice(i + 1).forEach(b => {
+      const dist = Math.hypot(a.x - b.x, a.y - b.y);
+      if (dist < 120) {
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.strokeStyle = `rgba(0, 245, 255, ${0.15 * (1 - dist / 120)})`;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+    });
+  });
+
+  requestAnimationFrame(drawParticles);
+}
+
+drawParticles();
