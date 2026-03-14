@@ -15,7 +15,6 @@
   --font-body: 'Rajdhani', sans-serif;
 }
 
-/* --- RESET & BASE --- */
 * {
   margin: 0;
   padding: 0;
@@ -35,12 +34,10 @@ body {
   overflow-x: hidden;
 }
 
-/* Scrollbar */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--dark); }
 ::-webkit-scrollbar-thumb { background: var(--cyan); border-radius: 3px; }
 
-/* --- NAVBAR --- */
 #navbar {
   position: fixed;
   top: 0;
@@ -91,7 +88,6 @@ body {
   cursor: pointer;
 }
 
-/* --- HERO SECTION --- */
 #hero {
   min-height: 100vh;
   display: flex;
@@ -102,7 +98,6 @@ body {
   overflow: hidden;
 }
 
-/* Grid background effect */
 #hero::before {
   content: '';
   position: absolute;
@@ -199,7 +194,6 @@ body {
   box-shadow: 0 0 15px var(--cyan);
 }
 
-/* Hero photo */
 .hero-visual {
   z-index: 1;
 }
@@ -232,7 +226,6 @@ body {
   filter: contrast(1.1) saturate(0.8);
 }
 
-/* --- SECTIONS COMMON --- */
 section {
   padding: 6rem 4rem;
   max-width: 1200px;
@@ -268,7 +261,6 @@ section {
   50% { opacity: 0; }
 }
 
-/* --- ABOUT --- */
 .highlight {
   color: var(--cyan);
   font-weight: 600;
@@ -279,7 +271,6 @@ section {
   max-width: 700px;
 }
 
-/* --- SKILLS --- */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -325,7 +316,6 @@ section {
   color: var(--cyan);
 }
 
-/* --- PROJECTS --- */
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -529,11 +519,7 @@ footer {
     padding: 4rem 1.5rem;
   }
 }
-/* ============================================
-   JAVASCRIPT ANIMATION STYLES
-   ============================================ */
 
-/* Scroll reveal — elements start invisible */
 .skill-category,
 .project-card,
 .cert-card,
