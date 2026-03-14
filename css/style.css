@@ -491,33 +491,27 @@ footer {
     gap: 1rem;
   }
 
-  .nav-links.open {
-    display: flex;
-  }
-
-  .hamburger {
-    display: block;
-  }
+  .nav-links.open { display: flex; }
+  .hamburger { display: block !important; }
 
   #hero {
     flex-direction: column;
-    padding: 7rem 1.5rem 3rem;
+    padding: 5rem 1.5rem 2rem;
     text-align: center;
-    gap: 3rem;
-  }
-
-  .hero-buttons {
+    gap: 1.5rem;
+    min-height: 100vh;
     justify-content: center;
   }
 
-  .glitch-box {
-    width: 200px;
-    height: 230px;
-  }
+  .hero-name { font-size: 2.5rem; }
+  .hero-buttons { justify-content: center; flex-wrap: wrap; }
+  .glitch-box { width: 160px; height: 180px; margin: 0 auto; }
 
-  section {
-    padding: 4rem 1.5rem;
-  }
+  section { padding: 3rem 1.5rem; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .cert-grid { grid-template-columns: 1fr 1fr; }
+  .contact-wrapper { grid-template-columns: 1fr; gap: 2rem; }
 }
 
 .skill-category,
